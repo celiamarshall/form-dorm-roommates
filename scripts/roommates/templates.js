@@ -14,6 +14,10 @@ function card ({ avatar, username, faction, address: { street, suite, city, zipc
           ${suite}<br/>
           ${city}, ${zipcode}
         </address>
+        <div class="card-footer d-flex justify-content-between">
+          <button class="btn btn-sm btn-light">Edit</button>
+          <button class="btn btn-sm btn-link text-danger">Delete</button>
+        </div>
       </section>
     </article>
   `

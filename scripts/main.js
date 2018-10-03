@@ -1,4 +1,5 @@
 const roommates = require('./roommates/render')
+const data = require('./roommates/data')
 
 const roommatesContainer = document.querySelector('#roommates')
 roommates.showAll(roommatesContainer)
@@ -12,19 +13,25 @@ newRoommateButton.addEventListener('click', (event) => {
   const form = document.querySelector('form')
   form.addEventListener('submit', (event) => {
     event.preventDefault()
+    //const username = document.querySelector('#username')
+    //console.log(username.value)
+    //console.log(event.target.username.value)
+    
+    const {avatar, username, faction, street, suite, city, zipcode} = event.target
+    
     const newFriend = {
-      'avatar': event.target.avatar.value,
-      'username': event.target.username.value,
-      'faction': event.target.faction.value,
+      'avatar': avatar.value,
+      'username': username.value,
+      'faction': faction.value,
       'address': {
-        'street': event.target.street.value,
-        'suite': event.target.suite.value,
-        'city': event.target.city.value,
-        'zipcode': event.target.zipcode.value
+        'street': street.value,
+        'suite': suite.value,
+        'city': city.value,
+        'zipcode': zipcode.value
       } 
     }
     data.push(newFriend)
-
+    roommates.showAll(roommatesContainer)
   })
 })
 
